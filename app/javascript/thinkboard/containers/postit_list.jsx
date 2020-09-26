@@ -42,6 +42,9 @@ class PostitList extends Component {
             }
           </div>
         </div>
+        <div className="footer">
+        <p>Built with React + Redux + Rails - <a href="https://github.com/wabawden/rails-react-thinkboard" target="_blank">GitHub Repo</a></p>
+        </div>
       </div>
     );
   }
