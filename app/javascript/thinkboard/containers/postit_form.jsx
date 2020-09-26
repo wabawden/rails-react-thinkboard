@@ -32,7 +32,7 @@ class PostitForm extends Component {
           value={this.state.value}
           onChange={this.handleChange}
         />
-        <button type="submit">Send</button>
+        <button type="submit">Post</button>
       </form>
     );
   }
