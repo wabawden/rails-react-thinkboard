@@ -5,3 +5,8 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+Postit.create(content:"this is a postit")
+Postit.create(content:"this is another postit")
+Postit.create(content:"this is another postit")
+Postit.create(content:"this is another postit")
+Postit.create(content:"this is another postit")
