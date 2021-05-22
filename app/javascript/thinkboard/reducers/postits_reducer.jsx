@@ -7,18 +7,18 @@ export default function(state = null, action) {
       return action.payload;
     }
     case UPVOTE_POST: {
-      const copiedState = state.push("")
-      const sameState = _.dropRight(copiedState)
-      return state;
+      const copiedState = state.slice(0);
+
+      return copiedState;
     }
     case DOWNVOTE_POST: {
-      const copiedState = state.push("")
-      const sameState = _.dropRight(copiedState)
-      return state;
+      const copiedState = state.slice(0);
+
+      return copiedState;
     }
     case POSTIT_POSTED: {
       const copiedState = state.slice(0);
-      copiedState.unshift(action.payload);
+      copiedState.push(action.payload);
       return copiedState;
     }
     default:

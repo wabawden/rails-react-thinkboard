@@ -1,6 +1,6 @@
 class Api::V1::PostitsController < ApplicationController
   def index
-    @postits = Postit.order(upvotes: :desc, created_at: :desc)
+    @postits = Postit.order(upvotes: :desc, created_at: :asc)
     render json: @postits
   end
   def show
