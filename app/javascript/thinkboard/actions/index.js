@@ -2,6 +2,7 @@ const BASE_URL = '../api/v1/';
 
 export const FETCH_POSTITS = 'FETCH_POSTITS';
 export const POSTIT_POSTED = 'POSTIT_POSTED';
+export const UPVOTE_POST = 'UPVOTE_POST';
 
 export function fetchPostits() {
   const url = `${BASE_URL}postits`;
@@ -31,5 +32,27 @@ export function createPostit(content, color) {
   return {
     type: POSTIT_POSTED,
     payload: promise // Will be resolved by redux-promise
+  };
+}
+
+export function upvotePost(id, upvotes) {
+  console.log(upvotes);
+  const url = `${BASE_URL}postits/${id}`;
+  const body = { upvotes };
+  const csrfToken = document.querySelector('meta[name="csrf-token"]').attributes.content.value;
+  const promise = fetch(url, {
+    method: 'PATCH',
+    headers: {
+      'Accept': 'application/json',
+      'Content-Type': 'application/json',
+      'X-CSRF-Token': csrfToken
+    },
+    credentials: 'same-origin',
+    body: JSON.stringify(body)
+  }).then(r => r.json());
+
+  return {
+    type: UPVOTE_POST,
+    payload: promise
   };
 }

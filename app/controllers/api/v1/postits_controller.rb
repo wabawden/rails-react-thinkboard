@@ -1,6 +1,6 @@
 class Api::V1::PostitsController < ApplicationController
   def index
-    @postits = Postit.order(created_at: :desc)
+    @postits = Postit.order(upvotes: :desc, created_at: :desc)
     render json: @postits
   end
   def show
@@ -10,11 +10,11 @@ class Api::V1::PostitsController < ApplicationController
   def create
     @postit = Postit.create(postit_params)
     render json: @postit
-    raise
   end
-  def upvote
+  def update
     @postit = Postit.find(params[:id])
-    @Postit.upvotes += 1
+    @postit.upvotes += 1
+    @postit.save
     render json: @postit
   end
 

@@ -3,15 +3,16 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 
 import { fetchPostits } from '../actions';
-import Postit from '../components/postit';
+import Postit from './postit';
 import PostitForm from '../containers/postit_form';
 
 class PostitList extends Component {
-  componentWillMount() {
-    this.fetchPostits();
-  }
+  // componentWillMount() {
+  //   this.fetchPostits();
+  // }
 
   componentDidMount() {
+    this.fetchPostits();
     this.refresher = setInterval(this.fetchPostits, 5000);
   }
 
