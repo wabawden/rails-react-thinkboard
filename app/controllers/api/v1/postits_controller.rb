@@ -17,7 +17,12 @@ class Api::V1::PostitsController < ApplicationController
     @postit.save
     render json: @postit
   end
-
+  def downvote
+    @postit = Postit.find(params[:id])
+    @postit.upvotes -= 1
+    @postit.save
+    render json: @postit
+  end
   private
     
   def postit_params
